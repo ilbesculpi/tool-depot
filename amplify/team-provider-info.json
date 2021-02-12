@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-tooldepot-staging-24610-authRole",
+      "UnauthRoleArn": "arn:aws:iam::717127845772:role/amplify-tooldepot-staging-24610-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::717127845772:role/amplify-tooldepot-staging-24610-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-tooldepot-staging-24610-deployment",
+      "UnauthRoleName": "amplify-tooldepot-staging-24610-unauthRole",
+      "StackName": "amplify-tooldepot-staging-24610",
+      "StackId": "arn:aws:cloudformation:us-east-1:717127845772:stack/amplify-tooldepot-staging-24610/77573160-6cdc-11eb-af5a-12d63bc7967b",
+      "AmplifyAppId": "d3awmf0fzsxdxw"
+    },
+    "categories": {
+      "auth": {
+        "tooldepot": {}
+      }
+    }
+  }
+}

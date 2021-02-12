@@ -1,0 +1,44 @@
+type Manufacturer @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  description: String
+  website: String
+  products: [ProductManufacturer] @connection(keyName: "byManufacturer", fields: ["id"])
+}
+
+type ProductCategory @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  slug: String
+  tags: String
+  products: [ProductProductCategory] @connection(keyName: "byProductCategory", fields: ["id"])
+}
+
+type Product @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  description: String
+  price: Float
+  slug: String
+  tags: String
+  ProductProductCategories: [ProductProductCategory] @connection(keyName: "byProduct", fields: ["id"])
+  sku: String
+  ProductManufacturers: [ProductManufacturer] @connection(keyName: "byProduct", fields: ["id"])
+}
+
+type ProductProductCategory @model(queries: null) @key(name: "byProduct", fields: ["productID", "productcategoryID"]) @key(name: "byProductCategory", fields: ["productcategoryID", "productID"]) @auth(rules: [{allow: public}, {allow: public}]) {
+  id: ID!
+  productID: ID!
+  productcategoryID: ID!
+  product: Product! @connection(fields: ["productID"])
+  productcategory: ProductCategory! @connection(fields: ["productcategoryID"])
+}
+
+type ProductManufacturer @model(queries: null) @key(name: "byProduct", fields: ["productID", "manufacturerID"]) @key(name: "byManufacturer", fields: ["manufacturerID", "productID"]) @auth(rules: [{allow: public}, {allow: public}]) {
+  id: ID!
+  productID: ID!
+  manufacturerID: ID!
+  product: Product! @connection(fields: ["productID"])
+  manufacturer: Manufacturer! @connection(fields: ["manufacturerID"])
+}
+ 
